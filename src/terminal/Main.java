@@ -13,6 +13,7 @@ public class Main {
 		
 		Boolean quit = false;
 		String prompt = "";
+		String command ="";
 		Scanner sc = new Scanner(System.in);
 		
 		OpenNebulaNode node = new OpenNebulaNode();
@@ -23,7 +24,11 @@ public class Main {
 			System.out.print("> ");
 			try{
 				prompt = sc.nextLine();
-				switch (prompt.substring(0,prompt.indexOf(' '))){
+				command = prompt;
+				if (prompt.indexOf(' ') != -1){
+					command = prompt.substring(0,prompt.indexOf(' '));
+				}
+				switch (command){
 					case "connectTo":
 						node.connect(prompt.substring(prompt.indexOf(' ')));
 						break;
@@ -76,7 +81,8 @@ public class Main {
 		System.out.println("connectTo <adressOfNode>");
 		System.out.println("version");
 		//TODO complete for the commands to do
-		System.out.println("terminate <idOfVmToTerminate>");
+		System.out.println("exit");
+		System.out.println("help");		
 	}
 
 }
