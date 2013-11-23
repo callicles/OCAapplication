@@ -34,7 +34,16 @@ public class Main {
 						// TODO En dernier, quand on aura testé le reste (il faut verifier les retours)
 						break;
 					case "print":
-						// TODO
+						switch(prompt.substring(prompt.indexOf(' '))) {
+							case "-VMs":
+								//TODO
+								break;
+							case "-nodes":
+								//TODO
+								break;
+							default:
+								System.out.println("Wrong arguments for print. See help");
+						}
 						break;
 					case "suspend":
 						// TODO
@@ -48,6 +57,9 @@ public class Main {
 					case "exit":
 						quit = true;
 						break;
+					case "help":
+						showHelp();
+						break;
 					default:
 						System.out.println("That command is not handled by the system");
 						break;
@@ -56,6 +68,15 @@ public class Main {
 				
 			}
 		}
+	}
+	
+	public static void showHelp(){
+		System.out.println("Help :");
+		System.out.println("Commands available :");
+		System.out.println("connectTo <adressOfNode>");
+		System.out.println("version");
+		//TODO complete for the commands to do
+		System.out.println("terminate <idOfVmToTerminate>");
 	}
 
 }
