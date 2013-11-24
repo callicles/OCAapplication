@@ -13,7 +13,7 @@ public class Main {
 		
 		Boolean quit = false;
 		String prompt = "";
-		String command ="";
+		String command = "";
 		Scanner sc = new Scanner(System.in);
 		
 		OpenNebulaNode node = new OpenNebulaNode();
@@ -29,14 +29,14 @@ public class Main {
 					command = prompt.substring(0,prompt.indexOf(' '));
 				}
 				switch (command){
-					case "connectTo":
+					case "connect":
 						node.connect(prompt.substring(prompt.indexOf(' ')));
 						break;
 					case "version":
 						node.printVersion();
 						break;
 					case "verify":
-						// TODO En dernier, quand on aura testé le reste (il faut verifier les retours)
+						// TODO En dernier, quand on aura testÃ© le reste (il faut verifier les retours)
 						break;
 					case "print":
 						switch(prompt.substring(prompt.indexOf(' '))) {
@@ -51,10 +51,10 @@ public class Main {
 						}
 						break;
 					case "suspend":
-						// TODO
+						node.suspend(prompt.substring(prompt.indexOf(' ')));
 						break;
 					case "migrate":
-						// TODO						
+						node.migrate(null, null); //TODO					
 						break;
 					case "terminate":
 						node.terminate(prompt.substring(prompt.indexOf(' ')));
@@ -78,7 +78,7 @@ public class Main {
 	public static void showHelp(){
 		System.out.println("Help :");
 		System.out.println("Commands available :");
-		System.out.println("connectTo <adressOfNode>");
+		System.out.println("connect <adressOfNode>");
 		System.out.println("version");
 		//TODO complete for the commands to do
 		System.out.println("exit");
