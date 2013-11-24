@@ -24,15 +24,15 @@ public class OpenNebulaNode {
 	}
 
 	public void printVersion() {
-		if (oneClient.equals(null)){
+		if (oneClient == null){
 			System.out.println("You need to connect to the node before trying to get the version");
 		} else {
-			System.out.println(oneClient.get_version());
+			System.out.println(oneClient.get_version().getMessage());
 		}
 	}
 	
 	public void terminate(String stringId){
-		if (oneClient.equals(null)){
+		if (oneClient == null){
 			System.out.println("You need to connect to the node before trying to terminate any VM");
 		} else if (stringId.length()>0){
 			
