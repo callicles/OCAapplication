@@ -14,6 +14,7 @@ public class Main {
 		Boolean quit = false;
 		String prompt = "";
 		String command = "";
+		String arg1 ="";
 		Scanner sc = new Scanner(System.in);
 		
 		OpenNebulaNode node = new OpenNebulaNode();
@@ -22,15 +23,20 @@ public class Main {
 		
 		while (!quit){
 			System.out.print("> ");
+			prompt = "";
+			command = "";
+			arg1 = "";
 			try{
 				prompt = sc.nextLine();
 				command = prompt;
 				if (prompt.indexOf(' ') != -1){
 					command = prompt.substring(0,prompt.indexOf(' '));
+					arg1 = prompt.substring(prompt.indexOf(' '));
 				}
+				System.out.println(arg1);
 				switch (command){
 					case "connect":
-						node.connect(prompt.substring(prompt.indexOf(' ')));
+						node.connect(arg1);
 						break;
 					case "version":
 						node.printVersion();
@@ -39,7 +45,7 @@ public class Main {
 						// TODO En dernier, quand on aura testé le reste (il faut verifier les retours)
 						break;
 					case "print":
-						switch(prompt.substring(prompt.indexOf(' '))) {
+						switch(arg1) {
 							case "-VMs":
 								//TODO
 								break;
@@ -51,13 +57,13 @@ public class Main {
 						}
 						break;
 					case "suspend":
-						node.suspend(prompt.substring(prompt.indexOf(' ')));
+						node.suspend(arg1);
 						break;
 					case "migrate":
 						node.migrate(null, null); //TODO					
 						break;
 					case "terminate":
-						node.terminate(prompt.substring(prompt.indexOf(' ')));
+						node.terminate(arg1);
 						break;
 					case "exit":
 						quit = true;
