@@ -20,6 +20,7 @@ public class Main {
 		OpenNebulaNode node = new OpenNebulaNode();
 
 		System.out.println(" === Welcome in the CLI tool for ONE ===");
+		showHelp();
 
 		while (!quit) {
 			System.out.print("> ");
@@ -54,10 +55,12 @@ public class Main {
 				case "print":
 					switch (arg1) {
 					case "-VMs":
-						// TODO
+						node.countVMs();
+						node.listVMs();
 						break;
 					case "-nodes":
-						// TODO
+						node.countNodes();
+						node.listNodes();
 						break;
 					default:
 						System.out.println("Wrong arguments for print. See help");
@@ -70,7 +73,7 @@ public class Main {
 					node.resume(arg1);
 					break;
 				case "migrate":
-					node.migrate(arg1, arg2); // TODO
+					node.migrate(arg1, arg2);
 					break;
 				case "terminate":
 					node.terminate(arg1);
@@ -92,7 +95,6 @@ public class Main {
 	}
 
 	public static void showHelp() {
-		System.out.println("Help :");
 		System.out.println("Commands available :");
 		System.out.println("connect <adressOfNode>");
 		System.out.println("version");
