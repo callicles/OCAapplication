@@ -2,7 +2,6 @@ package terminal;
 
 public class User {
 	
-	public static String ID = "oneAdmin";
-	public static String PASSWORD = ""; //je ne sais plus ce que c'était ...
-
+	public static String ID = "oneadmin";
+	public static String PASSWORD = "dd632cd89d2787d95856960070c14933"; 
 }

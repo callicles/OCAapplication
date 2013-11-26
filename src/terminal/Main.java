@@ -49,8 +49,7 @@ public class Main {
 					node.printVersion();
 					break;
 				case "verify":
-					// TODO En dernier, quand on aura testé le reste (il faut
-					// verifier les retours)
+					node.verifyVersion();
 					break;
 				case "print":
 					switch (arg1) {

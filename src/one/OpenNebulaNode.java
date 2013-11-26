@@ -18,6 +18,8 @@ import terminal.User;
 public class OpenNebulaNode {
 
 	private Client oneClient;
+	
+	private static String API_VERSION = "4.2.0";
 
 	public OpenNebulaNode() {
 	}
@@ -171,6 +173,15 @@ public class OpenNebulaNode {
 		} else {
 			HostPool pool = new HostPool(oneClient);
 			System.out.println("There are " + pool.getLength() + " nodes");
+		}
+	}
+	
+	public void verifyVersion(){
+		if (oneClient == null) {
+			System.out.println("You need to connect to the node before trying to terminate any VM");
+		} else {
+			System.out.println("API version :         "+API_VERSION);
+			System.out.println("Open Nebula Version : "+oneClient.get_version().getMessage());
 		}
 	}
 
